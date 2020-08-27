@@ -1,0 +1,16 @@
+---
+
+- name: Executing helm chart...
+  helm:
+    host: localhost
+    state: present
+    name: nfs-storage
+    namespace: nfs-storage
+    values: 
+      nfs.server: "{{ server }}"
+      nfs.path: "{{ path }}"
+    chart:
+      type: git
+      location: https://github.com/helm/charts.git
+      path: stable/nfs-client-provisioner
+

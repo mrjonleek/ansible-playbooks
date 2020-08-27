@@ -1,0 +1,14 @@
+---
+# This playbook installs and configures NFS storage.
+
+- name: Install & configure a NFS storage...
+  # Modify the `hosts` file with single-node target(s).
+  hosts: all
+  # Escalate privileges with `sudo`
+  become: true
+
+  # The following roles provision a NFS storage.
+  # Order is important and should not be altered.
+  roles:
+    # Execute nfs-client-provisioner Helm chart.
+    - helm
